@@ -1,0 +1,46 @@
+version: "3.6"
+
+services:
+
+  #MySQL Service
+  db:
+    build: ./mysql
+    container_name: egoditor_db
+    command: mysqld  --local-infile --default-authentication-plugin=mysql_native_password
+    restart: always
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: baubau12
+      MYSQL_DATABASE: egoditor_db
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: baubau12
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql:/etc/mysql/conf.d
+      - dbdata:/var/lib/mysql/
+    networks:
+      - app-network
+
+  app:
+    container_name: alex_florea
+    build: .
+    command: >
+      sh -c "cd /app && php artisan test && php artisan migrate && php artisan serve --host 0.0.0.0"
+    ports:
+      - "49170:8000"
+    depends_on:
+      - "db"
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+#Volumes
+volumes:
+  dbdata:
+    driver: local

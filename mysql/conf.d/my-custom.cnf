@@ -1,0 +1,11 @@
+[mysqld]
+general_log = 1
+max_connections = 250
+general_log_file = /var/lib/mysql/general.log
+local-infile = 1
+
+[mysql]
+local-infile = 1
+
+[client]
+local-infile = 1
