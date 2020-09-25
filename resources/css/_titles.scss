@@ -1,0 +1,14 @@
+.grey-title{
+    @extend .text-muted;
+    font-size: 12px;
+}
+
+.dark-blue-title{
+    font-size: 16px;
+    font-weight: bold;
+    color:$color-dark-blue;
+}
+
+.large--title{
+
+}

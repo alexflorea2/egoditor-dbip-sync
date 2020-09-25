@@ -11,7 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.webpackConfig((webpack) => {
+    return {
+        resolve: {
+            extensions: [".ts", ".js", ".vue"],
+            alias: {
+                "@jsFolder": path.resolve(__dirname , 'js')
+            }
+        }
+    };
+});
+
+mix.ts('resources/js/app.ts', 'public/js')
+    .sass('resources/css/app.scss', 'public/css');

@@ -1,0 +1,45 @@
+.bordered-box{
+    padding: 10px;
+    text-align: center;
+    border:1px solid grey;
+    border-radius: 5px;
+}
+
+.stats-box-upgrade
+{
+    @extend .bordered-box;
+    padding: 10px 10px 20px;
+    text-align: center;
+    border:1px solid grey;
+    border-radius: 5px;
+
+    &__title{
+        font-size: 12px;
+    }
+
+    &__available{
+        font-size: 12px;
+    }
+
+    &__used{
+        font-size: 16px;
+        font-weight: bold;
+        color:$color-dark-blue;
+    }
+}
+
+.stats-box-simple{
+    @extend .bordered-box;
+
+    &__title{
+        font-size: 12px;
+    }
+
+    &__info{
+        font-size: 14px;
+        font-weight: bold;
+        color:$color-dark-blue;
+    }
+}
+
+
