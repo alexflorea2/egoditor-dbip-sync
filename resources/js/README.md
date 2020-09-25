@@ -14,6 +14,8 @@ The information for the User and the countries list is under ```services``` wher
 
 For translations the ```vue-i18n``` library is used.
 
+Pages can use different Layouts, for example for changing the second level navigation etc.
+
 
 ### Bugs
 I could not make testing work with vue-test-utils, jest and typescript
